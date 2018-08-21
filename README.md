@@ -26,7 +26,7 @@
     **production**-生产环境
     修改config/index.js添加更多环境
 
-##基础插件
+## 基础插件
 + KOA
 > https://github.com/koajs/koa
 + koa-static

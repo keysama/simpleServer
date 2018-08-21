@@ -1,15 +1,13 @@
 const Router = require('koa-router');
 
-const home = require('./home.js')
 
 router= new Router({
-	prefix: '/api'
+	prefix: '/test'
 });
 
 router
-.use(home.routes())
 .get('/', async (ctx, next) => {
-	console.log('api有get0请求了')
+	console.log('/index/test有get0请求了')
 	console.log(ctx.request.body)
 	console.log(ctx.request.query)
 	console.log('session:',ctx.session)
@@ -17,9 +15,8 @@ router
 	ctx.body='123';
 	await next();
 	console.log('end')
-})
-.post('/', async (ctx, next) => {
-	console.log('api有post请求了')
+}).post('/', async (ctx, next) => {
+	console.log('/index/test有post请求了')
 	console.log(ctx.request.body)
 	console.log(ctx.request.query)
 	console.log('session:',ctx.session)

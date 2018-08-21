@@ -1,30 +1,19 @@
 const Router = require('koa-router');
-router= new Router();
 
 const api = require('./api');
+const index = require('./index/');
+const admin = require('./admin');
 
-router.use(api());
+router= new Router();
 
-router.get('/', async (ctx, next) => {
-	console.log('有get请求了')
-	console.log(ctx.request.body)
-	console.log(ctx.request.query)
-	console.log('session:',ctx.session)
-	ctx.session.num+=1;
-	ctx.body='123';
-	await next();
-});
+module.exports = (app) => {
+router
+	.use(api.routes(),api.allowedMethods())//api路由
+	.use(index.routes(),index.allowedMethods())//index路由
+	.use(admin.routes(),admin.allowedMethods())//admin路由
 
-router.post('/', async (ctx, next) => {
-	console.log('有post请求了')
-	console.log(ctx.request.body)
-	console.log(ctx.request.query)
-	console.log('session:',ctx.session)
-	ctx.session.num+=1;
-	ctx.body='123';
-	await next();
-});
 
-module.exports = () => {
-	return router.routes();
-}
+
+app.use(router.routes())
+   .use(router.allowedMethods())
+};

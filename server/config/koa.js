@@ -2,9 +2,8 @@ const Koa = require('koa');
 const koaStatic = require('koa-static');//静态资源中间件
 const bodyParser = require('koa-bodyparser')//解析请求,get数据放在ctx.request.query，post放在ctx.request.body
 const path = require('path');//用来解析路径，自带的包
-
 const config = require('./index');//根据运行环境返回相应配置文件
-const Router = require('../router');//路由
+const router = require('../router');//路由
 const logger = require('../middlewares/logger.js');//返回一个函数，执行函数返回一个配置好的日志中间件
 const session = require('../middlewares/session.js');//返回一个函数，执行函数返回一个配置好的session中间件
 
@@ -19,7 +18,7 @@ module.exports = () => {
 
 	app.use(session(app));//session的中间件，通过ctx.session存取
 
-	app.use(Router());
+	router(app);//路由
 
 	app.use(koaStatic(path.resolve(__dirname,`../${config.staticPath}`)));//设置静态资源文件夹
 
