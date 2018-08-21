@@ -23,5 +23,17 @@ module.exports = () => {
 	app.use(koaStatic(path.resolve(__dirname,`../${config.staticPath}`)));//设置静态资源文件夹
 
 	app.listen(port)
+
+	app.use(async (ctx) => {//404返回
+	  switch (ctx.status) {
+	    case 404:
+	      ctx.body=`<h1>404!!!</h1>`;
+	      break;
+	    case 500:
+	      ctx.body=`<h1>500!!!</h1>`;
+	      break;
+	  }
+	})
+
 	console.log('监听端口：'+port)
 }
