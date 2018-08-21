@@ -1,0 +1,32 @@
+{
+  "name": "simple-server",
+  "version": "1.0.0",
+  "description": "node-koa通用简易服务器",
+  "main": "app.js",
+  "dependencies": {
+    "commander": "^2.17.1",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.2",
+    "koa-static": "^5.0.0",
+    "log4js": "^3.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keysama/simpleServer.git"
+  },
+  "keywords": [
+    "koa"
+  ],
+  "author": "keysama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keysama/simpleServer/issues"
+  },
+  "homepage": "https://github.com/keysama/simpleServer#readme"
+}
