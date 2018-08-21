@@ -4,7 +4,7 @@ const api = require('./api');
 const index = require('./index/');
 const admin = require('./admin');
 
-router= new Router();
+router = new Router();
 
 module.exports = (app) => {
 

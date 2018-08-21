@@ -26,6 +26,14 @@
     **production**-生产环境
     修改config/index.js添加更多环境
 
+## sql语句使用
+```
+//modules/testModule.js
+    let res = await db('SELECT * FROM user2').catch(err=>{
+        console.log(err);
+    });
+```
+
 ## 基础插件
 + KOA
 > https://github.com/koajs/koa
@@ -39,3 +47,7 @@
 > https://github.com/alexmingoia/koa-router
 + log4js
 > https://github.com/log4js-node/log4js-node
++ mysql
+> https://github.com/mysqljs/mysql
++ commander
+> https://github.com/tj/commander.js

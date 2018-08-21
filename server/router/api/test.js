@@ -7,10 +7,10 @@ router = new Router({
 });
 
 router
-.get('/get', testController.testGet)
+	.get('/get', testController.testGet)
 
-.post('/post', testController.testPost)
+	.post('/post', testController.testPost)
 
-.all('/', testController.testAll)
+	.all('/', testController.testAll)
 
 module.exports = router;

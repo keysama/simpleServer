@@ -1,7 +1,7 @@
 const path = require('path');
 
 const timeStemp = new Date();//获取当前日期时间戳
-const time = timeStemp.getFullYear()+'_'+timeStemp.getMonth()+'_'+timeStemp.getDate();//保证每天日志放在不同文件夹
+const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeStemp.getDate();//保证每天日志放在不同文件夹
 
 module.exports = {
 
