@@ -21,7 +21,7 @@
     or
     config/env/production.js
 ```
-+默认两种环境配置
++ 默认两种环境配置
     **development**-开发环境
     **production**-生产环境
     修改config/index.js添加更多环境
