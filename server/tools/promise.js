@@ -5,7 +5,8 @@ module.exports = {
 		return new Promise(function(resolve, reject) {
 	        mysql(sql, function(error,results){
 	            if(error){
-	               reject(error)
+	            	console.log(error);
+	               resolve('error')
 	            }else{
 	               resolve(results)
 	            }
