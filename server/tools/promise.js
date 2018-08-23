@@ -6,7 +6,7 @@ module.exports = {
 	        mysql(sql, function(error,results){
 	            if(error){
 	            	console.log(error);
-	               resolve('error')
+	               resolve(false)
 	            }else{
 	               resolve(results)
 	            }

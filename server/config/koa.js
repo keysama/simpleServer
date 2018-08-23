@@ -14,6 +14,7 @@ const port = config.port ? parseInt(config.port) : 8080;//监听端口
 const app = new Koa();//没啥好说的=L=
 
 module.exports = () => {
+
 	app.use(logger());//日志的中间件
 
 	app.use(bodyParser());//请求解析的中间件
@@ -26,7 +27,7 @@ module.exports = () => {
 
 	app.listen(port);
 
-	app.on("error",error)//错误处理
+	app.use(error.handle)//错误处理
 
 	console.log('监听端口：'+port)
 }
