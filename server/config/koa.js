@@ -8,6 +8,8 @@ const router = require('../router');//路由
 const error = require('../middlewares/error.js');//错务处理的中间件
 const logger = require('../middlewares/logger.js');//配置好的日志中间件
 const session = require('../middlewares/session.js');//配置好的session中间件
+const cors = require('../middlewares/cors.js');//配置好的跨域中间件
+const ejs = require('../middlewares/ejs.js');//配置好的ejs模板
 
 const port = config.port ? parseInt(config.port) : 8080;//监听端口
 
@@ -15,11 +17,15 @@ const app = new Koa();//没啥好说的=L=
 
 module.exports = () => {
 
+	// app.use(cors());
+
 	app.use(logger());//日志的中间件
 
 	app.use(bodyParser());//请求解析的中间件
 
 	app.use(session(app));//session的中间件，通过ctx.session存取
+
+	app.use(ejs())//ejs模板
 
 	router(app);//路由
 

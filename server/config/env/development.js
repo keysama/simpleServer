@@ -5,7 +5,7 @@ const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeSt
 
 module.exports = {
 
-	port : 8081,//监听端口号
+	port : 8083,//监听端口号
 
 	logger : {//配置日志
 		respondTime : true,//是否开启记录相应时间
@@ -23,5 +23,23 @@ module.exports = {
         database: 'manage',
         port:'3306',
         dateStrings: true
+	},
+
+	cors : {
+		switch:true,
+ 		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+	    maxAge: 100,
+	    credentials: true,
+	    allowMethods: ['GET', 'POST', 'OPTIONS'],
+	    allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous']
+	},
+
+	ejs : {
+		path : path.resolve(__dirname,'../../views'),
+		options : {
+			map : {
+				html : 'ejs'
+			}
+		}
 	}
 }

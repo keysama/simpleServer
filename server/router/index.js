@@ -7,7 +7,6 @@ const admin = require('./admin');
 router = new Router();
 
 module.exports = (app) => {
-
 router
 	.use(api.routes(),api.allowedMethods())//api路由
 	.use(index.routes(),index.allowedMethods())//index路由
@@ -15,5 +14,4 @@ router
 
 app.use(router.routes())
    .use(router.allowedMethods())
-
 };

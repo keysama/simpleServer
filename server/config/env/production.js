@@ -23,6 +23,24 @@ module.exports = {
         database: 'test',
         port:'3306',
         dateStrings: true
+	},
+
+	cors : {
+		switch:false,
+ 		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+	    maxAge: 100,
+	    credentials: true,
+	    allowMethods: ['GET', 'POST', 'OPTIONS'],
+	    allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous']
+	},
+
+	ejs : {
+		path : path.resolve(__dirname,'../../views'),
+		options : {
+			map : {
+				html : 'ejs'
+			}
+		}
 	}
 
 }
