@@ -17,7 +17,7 @@ const app = new Koa();//没啥好说的=L=
 
 module.exports = () => {
 
-	// app.use(cors());
+	app.use(cors());
 
 	app.use(logger());//日志的中间件
 

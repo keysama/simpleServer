@@ -6,15 +6,14 @@ if(config.switch){
 }else{
 	console.log('关闭跨域')
 }
+
 module.exports=()=>{
- 	return async (ctx,next)=>{
- 		if(!config.switch){await next();}
- 		return cors({
-		    exposeHeaders: config.exposeHeaders,
-		    maxAge: config.maxAge,
-		    credentials: config.credentials,
-		    allowMethods: config.allowMethods,
-		    allowHeaders: config.allowHeaders,
-		})
- 	};
+	if(!config.switch){return async (ctx,next) => {await next()}}
+	return cors({
+	    exposeHeaders: config.exposeHeaders,
+	    maxAge: config.maxAge,
+	    credentials: config.credentials,
+	    allowMethods: config.allowMethods,
+	    allowHeaders: config.allowHeaders,
+	})
 }
