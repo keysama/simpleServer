@@ -1,5 +1,5 @@
 module.exports = {
-	hello : async (ctx, next) => {
+	index : async (ctx, next) => {
 		console.log('HELLO ! Here is adminController !')
 		console.log(ctx.request.body)
 		console.log(ctx.request.query)

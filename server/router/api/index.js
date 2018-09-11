@@ -1,6 +1,5 @@
 const Router = require('koa-router');
 
-const test = require('./test.js');
 const apiController = require('../../controller/api/apiController.js')
 
 router = new Router({
@@ -8,7 +7,7 @@ router = new Router({
 });
 
 router
-	.use(test.routes())
-	.all('/', apiController.hello)
+	.all('/', apiController.index)
+
 
 module.exports = router;

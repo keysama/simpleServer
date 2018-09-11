@@ -1,6 +1,5 @@
 const Router = require('koa-router');
 
-const test = require('./test.js');
 const adminController = require('../../controller/admin/adminController.js')
 
 router = new Router({
@@ -8,7 +7,6 @@ router = new Router({
 });
 
 router
-	.use(test.routes())
-	.all('/', adminController.hello)
+	.all('/', adminController.index)
 
 module.exports = router;

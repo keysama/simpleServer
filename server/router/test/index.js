@@ -1,16 +1,20 @@
 const Router = require('koa-router');
 
+const port = require('./port.js')
+const sql = require('./sql.js')
+
 const testController = require('../../controller/test/')//引入需要的controller
 
 router = new Router({
-	prefix: '/test'//路由前缀
+	prefix: '/test'
 });
 
 router
-	.get('/get', testController.testGet)
+	.all('/',testController.all)
 
-	.post('/post', testController.testPost)
+	.use(port.routes())
 
-	.all('/', testController.testAll)
+	.use(sql.routes())
+
 
 module.exports = router;
