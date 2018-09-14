@@ -1,5 +1,5 @@
 # simpleServer
-即开即用的简单nodejs服务器模板
+即开即用的简单node-Koa服务器模板
 ## 使用useage
 + git
 ```
@@ -26,12 +26,33 @@
     **production**-生产环境
     修改config/index.js添加更多环境
 
-## sql语句使用
+## mysql封装:
++ sql语句使用
 ```
-//modules/testModule.js
-    let res = await db('SELECT * FROM user2').catch(err=>{
-        console.log(err);
-    });
+	// modules/sqlTestModule.js
+	const mysql = require('../../config/mysql');
+	let sql = `...some query`;
+	let res = await mysql.db(sql);
+	if(res === false){error..}
+	//失败返回false，成功返回查询结果
+	...some code
+```
++ transaction事物使用
+```
+	// modules/sqlTestModule.js
+	const mysql = require('../../config/mysql');
+	let res = await mysql.startTrans(async (conn)=>{
+			let sql1 = `...some query`;//success query
+			let trans1 = await mysql.trans(conn,sql1);
+			if(trans1===false){console.log('err');return false};
+			let sql2 = `...some query`;//error query 
+			let trans2 = await mysql.trans(conn,sql2);
+			if(trans2===false){console.log('err');return false};
+			return {trans1,trans2};//成功返回的结果
+	})
+	if(res === false){error..}
+	//失败则回滚返回false，成功返回{trans1,trans2}
+	...some code
 ```
 
 ## 基础插件
@@ -51,3 +72,7 @@
 > https://github.com/mysqljs/mysql
 + commander
 > https://github.com/tj/commander.js
++ ejs
+> https://github.com/mde/ejs
++ koa2-cors
+> https://www.npmjs.com/package/koa2-cors
