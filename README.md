@@ -37,7 +37,7 @@
 	//失败返回false，成功返回查询结果
 	...some code
 ```
-+ transaction事物使用
++ transaction事务使用
 ```
 	// modules/sqlTestModule.js
 	const mysql = require('../../config/mysql');
