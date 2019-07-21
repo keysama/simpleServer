@@ -7,6 +7,19 @@ module.exports = {
 
 	port : 8080,//监听端口号
 
+	https : {
+		httpsPort : 443,
+		switch : false,
+		privateKey : {
+			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.key'),
+			encoded : 'utf8'
+		},
+		certificate : {
+			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.pem'),
+			encoded : 'utf8'
+		}
+	},
+	
 	mysql : {
         host: '127.0.0.1',
         user: 'root',
