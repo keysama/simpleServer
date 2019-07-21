@@ -9,6 +9,7 @@ module.exports = {
         return new Promise(function(resolve, reject) {
             pool.getConnection(function(err,conn){
                 if(err){
+                    console.log(err)
                     resolve(false)
                 }else{
                     conn.query(sql,function(err,results){
@@ -19,6 +20,7 @@ module.exports = {
                         }
                     })
                 }
+                conn.release();
             })
         });
     },
@@ -64,6 +66,7 @@ module.exports = {
                         resolve(res)
                     })
                 }
+                conn.release();
             })
         });
     },
