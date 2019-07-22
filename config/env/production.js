@@ -5,7 +5,7 @@ const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeSt
 
 module.exports = {
 
-	port : 8080,//监听端口号
+	port : 80,//监听端口号
 
 	https : {
 		httpsPort : 443,
@@ -23,8 +23,8 @@ module.exports = {
 	mysql : {
         host: '127.0.0.1',
         user: 'root',
-        password: '',
-        database: 'test',
+        password: 'pangSky12#$',
+        database: 'pangsky_community',
         port:'3306',
         dateStrings: true
 	},
@@ -69,6 +69,15 @@ module.exports = {
 			}
 		}]
 
+	},
+	spaPath : { //解决单页面刷新问题，有关的路由全部定向为index.html
+		switch : true,
+		path : [
+			{
+				url:'/community',//把/community下的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				indexFile:path.resolve(__dirname,'../../static/community/index.html')
+			}
+		]
 	}
 
 }

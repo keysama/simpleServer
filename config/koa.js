@@ -2,6 +2,7 @@ const Koa = require('koa');
 const setStaticPath = require('../middlewares/static.js');//设置静态资源路径
 const setAppCache = require('../middlewares/common.js');//设置缓存
 const startServe = require('../middlewares/start.js');//开启服务
+const setSPApath = require('../middlewares/setSPApath.js');//设置单页面的路径，把请求都给index，解决刷新问题
 const bodyParser = require('koa-bodyparser')//解析请求,get数据放在ctx.request.query，post放在ctx.request.body
 const router = require('../router');//路由
 const error = require('../middlewares/error.js');//错务处理的中间件
@@ -29,6 +30,8 @@ module.exports = () => {
 	router(app);//路由
 
 	setStaticPath(app);//设置静态资源文件夹
+
+	setSPApath(app);//设置单页面的路径，把请求都给index，解决刷新问题
 
 	startServe(app);//开启服务，http以及https
 

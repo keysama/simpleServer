@@ -5,17 +5,17 @@ const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeSt
 
 module.exports = {
 
-	port : 8083,//监听端口号
+	port : 8083,//监听端口号,false关闭
 
 	https : {
 		httpsPort : 443,
-		switch : false,
+		switch : false,//开关
 		privateKey : {
-			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.key'),
+			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.key'),//公钥地址
 			encoded : 'utf8'
 		},
 		certificate : {
-			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.pem'),
+			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.pem'),//私钥地址
 			encoded : 'utf8'
 		}
 	},
@@ -69,5 +69,14 @@ module.exports = {
 			}
 		}]
 
+	},
+	spaPath : { //解决单页面刷新问题，有关的路由全部定向为index.html
+		switch : true,
+		path : [
+			{
+				url:'/community',//把/community下的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				indexFile:path.resolve(__dirname,'../../static/community/index.html')
+			}
+		]
 	}
 }
