@@ -19,7 +19,10 @@ module.exports = {
 			encoded : 'utf8'
 		}
 	},
-	
+	token : {
+		key : 'pangSky_12#$',
+		time : '24h'
+	},
 	mysql : {
         host: '127.0.0.1',
         user: 'root',
@@ -30,12 +33,14 @@ module.exports = {
 	},
 
 	logger : {//配置日志
-		respondTime : false,//是否开启记录响应时间
-		type : 'file',//类型，file：保存到文件，dateFile：保存到日期文件，console：控制台
-		filename:  path.resolve(__dirname,`../../logs/daily_${time}.log`),//输出的文件路径和文件名
-		level : 'debug',//级别，保存以上的错误信息trace<debug<info<warn<error<fatal
+		respondTime : true,//是否开启记录相应时间
+		requestBody : true,//是否开启记录请求数据
+		requestParams : true,//是否开启记录请求的url参数
+		requestUrl : true,//是否开启记录请求的地址
+		type : 'dateFile',//类型，file：保存到文件，dateFile：保存到日期文件，console：控制台
+		filename : path.resolve(__dirname,`../../logs/daily_${time}.log`),//输出的文件路径和文件名
+		level : 'warn',//级别，保存以上的错误信息trace<debug<info<warn<error<fatal
 	},
-
 	staticPath : [//静态资源目录,可以是多个
 		path.resolve(__dirname,'../../static')
 	],
@@ -74,7 +79,7 @@ module.exports = {
 		switch : true,
 		path : [
 			{
-				url:'/community',//把/community下的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				url:'/community',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community/index.html')
 			}
 		]

@@ -1,22 +1,26 @@
 const mysql = require('mysql');
-
 const config = require('./index.js').mysql;
+const pool = mysql.createPool(config);
 
-var pool = mysql.createPool(config);
+const log4js = require('log4js');
+const loggerConfig = require('./index.js').logger;
+const logger = loggerConfig.sql ? log4js.getLogger('SQL') : () => {};
 
 module.exports = {
     db : (sql) => {
         return new Promise(function(resolve, reject) {
             pool.getConnection(function(err,conn){
                 if(err){
-                    console.log(err)
+                    logger.error(err)
                     resolve(false)
                 }else{
                     conn.query(sql,function(err,results){
                         if(err){
+                            logger.error(err)
                             resolve(false)
                         }else{
-                           resolve(results)
+                            logger.info(sql)
+                            resolve(results)
                         }
                     })
                 }

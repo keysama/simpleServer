@@ -20,10 +20,15 @@ module.exports = {
 		}
 	},
 
+	token : {
+		key : 'pangSky_12#$',
+		options : { expiresIn: '2h' }
+	},
+
 	mysql : {
         host: '127.0.0.1',
         user: 'root',
-        password: 'lx834529965LX#@！',
+        password: 'lx834529965LX#@!',
         database: 'pangsky_community',
         port:'3306',
         dateStrings: true
@@ -35,6 +40,10 @@ module.exports = {
 
 	logger : {//配置日志
 		respondTime : true,//是否开启记录相应时间
+		requestBody : true,//是否开启记录请求数据
+		requestParams : true,//是否开启记录请求的url参数
+		requestUrl : true,//是否开启记录请求的地址
+		sql : true,//是否开启记录sql请求
 		type : 'console',//类型，file：保存到文件，dateFile：保存到日期文件，console：控制台
 		filename : path.resolve(__dirname,`../../logs/daily_${time}.log`),//输出的文件路径和文件名
 		level : 'trace',//级别，保存以上的错误信息trace<debug<info<warn<error<fatal
@@ -68,13 +77,12 @@ module.exports = {
 				maxAge : 1 * 60 * 60
 			}
 		}]
-
 	},
 	spaPath : { //解决单页面刷新问题，有关的路由全部定向为index.html
 		switch : true,
 		path : [
 			{
-				url:'/community',//把/community下的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				url:'/community',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community/index.html')
 			}
 		]
