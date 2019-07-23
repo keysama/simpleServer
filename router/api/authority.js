@@ -8,7 +8,7 @@ const router = new Router({
 /**
  * @api {post} /api/authority/login 登录
  * @apiDescription 普通用户/管理员登录
- * @apiName submit-login
+ * @apiName  login
  * @apiGroup authority
  * @apiParam {string} username 用户名
  * @apiParam {string} password 密码
@@ -18,7 +18,7 @@ const router = new Router({
  *      "state" : 1,
  *      "body" : token
  *  }
- * @apiSampleRequest http://localhost:8083/api/authority/submit-login
+ * @apiSampleRequest http://localhost:8083/api/authority/login
  * @apiVersion 1.0.0
  */
 router

@@ -23,15 +23,19 @@ module.exports=()=>{
       logger.info(`地址：${ctx.request.url}`)
     }
  		await next();
-    if(config.requestBody){
-      logger.debug(`请求body：${JSON.stringify(ctx.request.body)}`)
-    }
-    if(config.requestParams){
-      logger.debug(`url参数：${(ctx.params && JSON.stringify(ctx.params)) || '无'}`)
-    }
-    if (config.respondTime){
-      let end=config.respondTime && Date.now();//记录相应结束时间
-      logger.trace(`响应时间：${(end-start)/1000}秒`)
+    if(ctx.res.statusCode === 200){
+      if(config.requestBody){
+        logger.debug(`请求body：${JSON.stringify(ctx.request.body)}`)
+      }
+      if(config.requestParams){
+        logger.debug(`url参数：${(ctx.params && JSON.stringify(ctx.params)) || '无'}`)
+      }
+      if (config.respondTime){
+        let end=config.respondTime && Date.now();//记录相应结束时间
+        logger.trace(`响应时间：${(end-start)/1000}秒`)
+      }
+    }else{
+      logger.debug(`错误：status:${ctx.res.statusCode}`)
     }
  	};
 }

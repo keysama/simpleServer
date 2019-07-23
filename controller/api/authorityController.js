@@ -4,6 +4,7 @@ const config = require('../../config/index.js').token;
 
 module.exports = {
 	login : async (ctx,next) => {
+
 		const {username,password} = ctx.request.body;
 
 		let userInfo = await authorityModule.login(username,password);

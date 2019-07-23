@@ -4,7 +4,7 @@
     "url": "/api/authority/login",
     "title": "登录",
     "description": "<p>普通用户/管理员登录</p>",
-    "name": "submit_login",
+    "name": "login",
     "group": "authority",
     "parameter": {
       "fields": {
