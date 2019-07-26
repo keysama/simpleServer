@@ -4,7 +4,10 @@ const pool = mysql.createPool(config);
 
 const log4js = require('log4js');
 const loggerConfig = require('./index.js').logger;
-const logger = loggerConfig.sql ? log4js.getLogger('SQL') : () => {};
+const logger = loggerConfig.sql ? log4js.getLogger('SQL') : {
+    error : () => {},
+    info: () => {}
+};
 
 module.exports = {
     db : (sql) => {
