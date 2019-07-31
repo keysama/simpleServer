@@ -1,5 +1,6 @@
 module.exports = {
 	handle :  async (ctx,next) => {//错误处理
+
 		if(!ctx.errorCode){await next();return;}
 
 		switch(ctx.errorCode){

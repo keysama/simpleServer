@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        height: 100vh;
+        width: 100%;
+        background: url("") center center / cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #phone{
+        margin:15px 0 30px 0;
+      }
+
+      @media screen and (min-width: 577px) {
+#smButton1,#smButton2{
+  cursor: pointer;
+  margin-left:5px
+}
+
+        #center {
+          height:70%;
+          min-width: 970px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: -45px;
+        }
+        #title {
+         
+          margin-bottom: 0px;
+        }
+
+        #an p,
+        #ap p {
+          color: white;
+          font-size: 25px;
+        }
+
+        #book1_m,
+        #book2_m,
+        #book3_m {
+          display: none;
+        }
+      }
+
+      #box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 970px;
+        margin:30px 0 20px 0;
+      }
+
+      #platform {
+        display: flex;
+      }
+
+      #androidCheck {
+        width: 46px;
+        height: 46px;
+      }
+
+      #appleCheck {
+        width: 46px;
+        height: 46px;
+      }
+
+      #apple {
+        width: 31px;
+        height: 38px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      #android {
+        width: 31px;
+        height: 38px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .input {
+        margin: 0px 0px 15px 0px;
+        font-size: 18px;
+        padding: 40px 20px;
+        border-radius: 10px;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #e5e5e5;
+        letter-spacing: 1px;
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      input::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      #buttonGroup .icon {
+        width: 28px;
+        height: 28px;
+        margin-right: 5px;
+      }
+
+      #buttonGroup > div {
+        width: 50%;
+        display: flex;
+        color: white;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      #buttonGroup > div:first-child {
+        width: 51%;
+      }
+
+      #buttonGroup {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      #button1 > div,
+      #button2 > div,
+      #button3 > div {
+        display: flex;
+        align-items: center;
+      }
+
+      .smButton {
+        padding: 5px 20px;
+        margin-left: 15px;
+        border-radius: 5px;
+        opacity: 0.8;
+        background-color: #1c1615;
+        color: #c0bdbd;
+        font-size: 10px;
+        text-align: center;
+        line-height: 22px;
+        border: 1px solid #888;
+        cursor: pointer;
+      }
+
+      #book2,
+      #book3,
+      #book1 {
+        overflow: hidden;
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+      }
+      #book1 {
+        display: block;
+      }
+
+      #window1 {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #w1 {
+        animation-name: show1;
+        animation-duration: 0.5s;
+      }
+
+      @keyframes show1 {
+        0% {
+          transform: scale(0) translate(-40%, 40%);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes show2 {
+        0% {
+          transform: scale(0) translate(40%, 40%);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      #w2 {
+        animation-name: show2;
+        animation-duration: 0.5s;
+      }
+
+      #window2 {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /**移动设备**/
+      @media screen and (max-width: 576px) {
+        #center {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center
+        }
+        #container{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center
+        }
+
+        #an p,
+        #ap p {
+          color: rgb(182, 163, 148);
+          font-size: 12px;
+        }
+
+        .input {
+          border-radius: 2px !important;
+          padding: 0 10px !important;
+          font-size: 12px !important;
+        }
+
+        #buttonGroup > div {
+          font-size: 12px;
+          width: 100% !important;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+        }
+        #phone{
+          margin: 0 0 20px 0;
+        }
+
+
+        #buttonGroup > div > .smButton {
+          border-radius: 2px;
+          padding: 0 2px;
+        }
+
+        #platform > div > div {
+          transform: scale(0.6);
+          margin-left:-8px;
+        }
+        #platform {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        #apple,
+        #android {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+
+        #box {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          max-width: 970px;
+          margin:0;
+        }
+
+        #title {
+          width:100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+          margin-top: 0px;
+          margin-bottom: 50px;
+        }
+
+        #smButton1,
+        #smButton2{
+          transform: scale(.7)
+        }
+
+        #book1,
+        #book2 {
+          display: none;
+        }
+
+        #book {
+          display: flex;
+          flex-direction: column;
+        }
+
+        /*#book1_m {
+          text-align: center;
+          height: 40px;
+          line-height: 40px;
+          font-size: 1.14286rem;
+          background-color: rgb(151, 133, 107);
+          color: rgb(255, 255, 255);
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+          #book2_m {
+          text-align: center;
+          height: 40px;
+          line-height: 36px;
+          font-size: 1.14286rem;
+          background-color: rgba(0, 0, 0, 0.9);
+          border: 1px solid rgb(135, 135, 135);
+          color: rgb(255, 255, 255);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 15px;
+        }*/
+
+        #book3_m,
+        #book1_m,
+        #book2_m {
+          
+          width: 70%;
+          margin:0 auto;
+          margin-bottom: 15px;
+          display: none;
+        }
+
+        #w1,
+        #w2 {
+          max-width: 95vw;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="center">
+        <img id="title">
+        <div id="box">
+          <div id="platform">
+            <div
+              id="an"
+              style="display: flex;align-items: center;margin-right:20px"
+            >
+              <div id="androidCheck"></div>
+              <div id="android"></div>
+              <p>Android</p>
+            </div>
+            <div id="ap" style="display: flex;align-items: center">
+              <div id="appleCheck"></div>
+              <div id="apple"></div>
+              <p>ios</p>
+            </div>
+          </div>
+          <div id="input">
+            <input
+              id="phone"
+              type="number"
+              class="input"
+              placeholder="휴대폰 번호를 ‘-’없이 숫자만 입력해 주세요."
+            />
+          </div>
+
+          <div id="buttonGroup">
+            <div id="button1">
+              <div>
+                <div id="i1" class="icon"></div>
+                아래 내용을 확인하였으며, 모두 동의합니다.
+              </div>
+            </div>
+            <div id="button2">
+              <div>
+                <div id="i2" class="icon"></div>
+                개인정보 수집 및 이용 동의
+              </div>
+              <!--<div id="b1" class="smButton">자세히보기</div>-->
+              <img id="smButton1">
+            </div>
+            <div id="button3">
+              <div>
+                <div id="i3" class="icon"></div>
+                개인정보 수집 및 이용 동의
+              </div>
+              <!--<div id="b2" class="smButton">자세히보기</div>-->
+              <img id="smButton2">
+            </div>
+          </div>
+          <div id="book" style="display:flex;justify-content: space-between;margin-top:20px">
+            <img id="book1">
+            <img id="book2">
+            <img id="book3">
+            <img id="book1_m" />
+            <img id="book2_m" />
+            <img id="book3_m" />
+          </div>
+        </div>
+      </div>
+
+      <div id="window1">
+        <img id="w1" />
+      </div>
+      <div id="window2">
+        <img id="w2" />
+      </div>
+    </div>
+    <script>
+      template_name = "/s1_form/";
+
+      let default_data = {
+        pc: {
+          img: "./Advance booking bg.jpg",
+          title: "./Advance booking content.png",
+          icon: "./Google APP  Checkbox Icon.png",
+          booking1: "./Pre-booking (Basic).png",
+          booking2: "./Prior reservation (Google).png",
+          w1: "./Collection and use of personal information popup.png",
+          w2: "./Accept advertising information (optional) Pop-up.png",
+          //新添加的
+          booking3: "./Prior reservation (Google).png",
+          //不需要baseUrl
+
+          bookUrl2: "https://qq.com",
+          bookUrl3: "https://360.cn",
+          fontColor: "white",
+          MarginTop:0,
+          smButton1:'./mb/sm1.png',
+          smButton2:'./mb/sm2.png'
+        },
+        mobile: {
+          bg: "./mb/Advance booking bg.jpg",
+          icon: "./mb/Google APP  Checkbox Icon.png",
+          play: "./mb/btn-google.png",
+          w1: "./Collection and use of personal information popup.png",
+          w2: "./Accept advertising information (optional) Pop-up.png",
+          //新添加的
+          button1: "./mb/b1.png",
+          button2: "./mb/b2.png",
+          button3: "./mb/b2.png",
+
+          buttonUrl2: "https://qq.com",
+          buttonUrl3: "https://baidu.com",
+          fontColor: "white",
+          smButton1:'./mb/sm1.png',
+          smButton2:'./mb/sm2.png'
+        }
+      };
+
+      let flag = false;
+
+      if (window.parent.goto) {
+        flag = true;
+      } else {
+        init({ data: default_data });
+        flag = true;
+      }
+
+      window.addEventListener("message", function(event) {
+        //主站调用此页面并发送事件，参数在event.data
+        if (!event.data.data && flag == false) {
+          flag = true;
+          init({ data: default_data });
+          return;
+        }
+        bindScroll(window.parent.next, window.parent.prve); //绑定滚轮事件，父级暴露的方法：window.parent.next\window.parent.prve\window.parent.goto([number]),上一页、下一页、跳转(0开始的index)
+        if (event.data.data) {
+          init(event.data);
+        } //用得到的数据渲染页面}
+      });
+
+      function bindScroll(next, prve) {
+        //绑定滚轮
+        if (document.addEventListener) {
+          document.addEventListener("DOMMouseScroll", onScroll, false);
+        } //W3C
+        window.onmousewheel = document.onmousewheel = onScroll; //IE/Opera/Chrome
+
+        function onScroll(e) {
+          e = e || window.event;
+          if (e.wheelDelta || e.detail) {
+            //IE/Opera/Chrome || //Firefox
+            var offset = e.wheelDelta || e.detail;
+            if (offset < 0) {
+              next();
+            } else {
+              prve();
+            }
+          }
+        }
+      }
+
+      function init({ data, baseUrl = template_name }) {
+        //渲染页面
+        if (typeof data == "string") {
+          data = JSON.parse(data);
+        }
+        console.log(data);
+        {
+          data.pc.img = baseUrl + data.pc.img;
+          data.pc.title = baseUrl + data.pc.title;
+          data.pc.icon = baseUrl + data.pc.icon;
+          data.pc.booking1 = baseUrl + data.pc.booking1;
+          data.pc.booking2 = baseUrl + data.pc.booking2;
+          data.pc.booking3 = baseUrl + data.pc.booking3;
+          data.pc.w1 = baseUrl + data.pc.w1;
+          data.pc.w2 = baseUrl + data.pc.w2;
+          data.pc.smButton1 = baseUrl + data.pc.smButton1;
+          data.pc.smButton2 =  baseUrl + data.pc.smButton2;
+          data.mobile.bg = baseUrl + data.mobile.bg;
+          data.mobile.icon = baseUrl + data.mobile.icon;
+          data.mobile.play = baseUrl + data.mobile.play;
+          data.mobile.w1 = baseUrl + data.mobile.w1;
+          data.mobile.w2 = baseUrl + data.mobile.w2;
+          data.mobile.button1 = baseUrl + data.mobile.button1;
+          data.mobile.button2 = baseUrl + data.mobile.button2;
+          data.mobile.button3 = baseUrl + data.mobile.button3;
+          data.mobile.smButton1=baseUrl+data.mobile.smButton1
+          data.mobile.smButton2=baseUrl+data.mobile.smButton2
+        }
+
+        let url = function(url) {
+          return 'url("' + url + '")';
+        };
+        let model = {
+          platform: "android",
+          c1: false,
+          c2: false,
+          c3: false
+        };
+        let check = function(id) {
+          document.getElementById(id).style.backgroundPosition = "-50px -100px";
+        };
+        let uncheck = function(id) {
+          document.getElementById(id).style.backgroundPosition = "0px -100px";
+        };
+        document.getElementById("i1").addEventListener("click", function() {
+          if (model.c1 == false) {
+            check("i1");
+            check("i2");
+            check("i3");
+            console.log(model);
+
+            model.c1 = true;
+            model.c2 = true;
+            model.c3 = true;
+          } else {
+            uncheck("i1");
+            uncheck("i2");
+            uncheck("i3");
+            console.log(model);
+            model.c1 = false;
+            model.c2 = false;
+            model.c3 = false;
+          }
+        });
+
+        document.getElementById("i2").addEventListener("click", function() {
+          if (model.c1 == true) {
+            uncheck("i1");
+            uncheck("i2");
+            model.c1 = false;
+            model.c2 = false;
+          } else {
+            if (model.c2 == true) {
+              uncheck("i2");
+              model.c2 = false;
+            } else if (model.c2 == false && model.c3 == true) {
+              check("i2");
+              model.c2 = true;
+              if ((model.c3 = true)) {
+                check("i1");
+                model.c1 = true;
+              }
+            } else {
+              check("i2");
+              model.c2 = true;
+            }
+          }
+        });
+        document.getElementById("i3").addEventListener("click", function() {
+          if (model.c1 == true) {
+            uncheck("i1");
+            uncheck("i3");
+            model.c1 = false;
+            model.c3 = false;
+          } else {
+            if (model.c2 == false && model.c3 == true) {
+              uncheck("i3");
+              model.c3 = false;
+            } else if (model.c2 == true && model.c3 == false) {
+              check("i1");
+              check("i3");
+              model.c1 = true;
+              model.c3 = true;
+            } else if (model.c2 == false && model.c3 == false) {
+              check("i3");
+              model.c3 = true;
+            }
+          }
+        });
+        //浮窗
+        document.getElementById("smButton1").addEventListener("click", function() {
+          document.getElementById("window1").style.display = "flex";
+        });
+        document
+          .getElementById("window1")
+          .addEventListener("click", function() {
+            document.getElementById("window1").style.display = "none";
+            document.getElementById("");
+          });
+        document.getElementById("smButton2").addEventListener("click", function() {
+          document.getElementById("window2").style.display = "flex";
+        });
+        document
+          .getElementById("window2")
+          .addEventListener("click", function() {
+            document.getElementById("window2").style.display = "none";
+          });
+        //切换平台
+        let changePlatform = function(e) {
+          console.log(e.srcElement.parentElement.id + model.platform);
+          if (
+            e.srcElement.parentElement.id == "an" &&
+            model.platform == "apple"
+          ) {
+            document.getElementById("androidCheck").style.backgroundPosition =
+              "-50px -50px";
+            document.getElementById("appleCheck").style.backgroundPosition =
+              "0px -50px";
+            model.platform = "android";
+          } else if (
+            e.srcElement.parentElement.id == "ap" &&
+            model.platform == "android"
+          ) {
+            document.getElementById("androidCheck").style.backgroundPosition =
+              "0px -50px";
+            document.getElementById("appleCheck").style.backgroundPosition =
+              "-50px -50px";
+            model.platform = "apple";
+          }
+        };
+        document.getElementById("an").addEventListener("click", changePlatform);
+        document.getElementById("ap").addEventListener("click", changePlatform);
+
+        if (window.innerWidth > 576) {
+          //控制titleMarginBottom
+          document.getElementById("center").style.marginTop=data.pc.MarginTop+"px"
+          //初始化部分图片
+          document.getElementById("smButton1").src=data.pc.smButton1
+          document.getElementById("smButton2").src=data.pc.smButton2
+          //初始化字体颜色
+          {
+            let color = data.pc.fontColor;
+            document.querySelectorAll("p").forEach(node => {
+              node.style.color = color;
+            });
+            document.getElementById("buttonGroup").childNodes.forEach(node => {
+              console.log();
+              if (node.nodeType == 1) {
+                //div
+                node.style.color = color;
+              }
+            });
+          }
+
+          document.getElementById("container").style.background =
+            'url("' + data.pc.img + '") center center / cover no-repeat';
+          document.getElementById("title").src =
+             data.pc.title 
+          document.getElementById("android").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("apple").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("apple").style.backgroundPosition =
+            "-50px 0px";
+          document.getElementById("androidCheck").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("androidCheck").style.backgroundPosition =
+            "-50px -50px";
+          document.getElementById("appleCheck").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("appleCheck").style.backgroundPosition =
+            "0px -50px";
+          document.getElementById("i1").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i2").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i3").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i1").style.backgroundPosition = "0px -100px";
+          document.getElementById("i2").style.backgroundPosition = "0px -100px";
+          document.getElementById("i3").style.backgroundPosition = "0px -100px";
+          {
+            let book1 = document.getElementById("book1");
+            book1.src = data.pc.booking1 
+            book1.addEventListener("click", function() {
+              {
+                //submit
+                let phone = document.getElementById("phone").value;
+                if (phone.length == 0) {
+                  alert("휴대번호를 입력해주세요.");
+                } else if (phone.length != 11) {
+                  alert("잘못된 휴대폰 번호입니다.다시 확인하고 입력해주세요.");
+                } else if (model.c1 == false) {
+                  alert("잘못된 휴대폰 번호입니다.다시 확인하고 입력해주세요.");
+                } else {
+                  var res = {
+                    phone_type: model.platform == "android" ? 1 : 2,
+                    telnum: document.getElementById("phone").value,
+                    in_type: model.ismobile ? "M" : "M",
+                    user_type: "",
+                    chk2: 1
+                  };
+                  let ret = "";
+                  for (var item in res) {
+                    ret +=
+                      encodeURIComponent(item) +
+                      "=" +
+                      encodeURIComponent(res[item]) +
+                      "&";
+                  }
+                  ret = ret.substring(0, ret.length - 1);
+                  console.log(res);
+                  window.parent.booking({
+                    phone: res.telnum,
+                    device: window.innerWidth < 576 ? 0 : 1,
+                    type: model.platform == "android" ? 0 : 1
+                  });
+                  //alert('사전예약 신청이 완료 되었습니다. 참여해 주셔서 감사합니다.')
+                }
+                console.log(model);
+              }
+            });
+          }
+
+          if (data.pc.booking2 && data.pc.bookUrl2) {
+            document.getElementById("book2").src =
+              data.pc.booking2 
+            document
+              .getElementById("book2")
+              .addEventListener("click", function() {
+                window.location.href = data.pc.bookUrl2;
+              });
+            document.getElementById("book2").style.display = "block";
+          }
+
+          if (data.pc.booking3 && data.pc.bookUrl3) {
+            document.getElementById("book3").src =
+               data.pc.booking3 
+            document
+              .getElementById("book3")
+              .addEventListener("click", function() {
+                window.location.href = data.pc.bookUrl3;
+              });
+            document.getElementById("book3").style.display = "block";
+          }
+
+          document.getElementById("w1").src = data.pc.w1;
+          document.getElementById("w2").src = data.pc.w2;
+        }
+        //移动设备
+        else {
+           //初始化部分图片
+           document.getElementById("smButton1").src=data.mobile.smButton1
+          document.getElementById("smButton2").src=data.mobile.smButton2
+          //初始化字体颜色
+          {
+            let color = data.mobile.fontColor;
+            document.querySelectorAll("p").forEach(node => {
+              node.style.color = color;
+            });
+            document.getElementById("buttonGroup").childNodes.forEach(node => {
+              console.log();
+              if (node.nodeType == 1) {
+                //div
+                node.style.color = color;
+              }
+            });
+          }
+
+          let url = function(url) {
+            return 'url("' + url + '")';
+          };
+          document.getElementById("title").src =
+            data.pc.title 
+          document.getElementById("container").style.backgroundImage = url(
+            data.mobile.bg
+          );
+          //选择框
+          document.getElementById("i1").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i2").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i3").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("i1").style.backgroundPosition = "0px -100px";
+          document.getElementById("i2").style.backgroundPosition = "0px -100px";
+          document.getElementById("i3").style.backgroundPosition = "0px -100px";
+          //选择平台
+          document.getElementById("android").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("apple").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("apple").style.backgroundPosition =
+            "-50px 0px";
+          document.getElementById("androidCheck").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("androidCheck").style.backgroundPosition =
+            "-50px -50px";
+          document.getElementById("appleCheck").style.backgroundImage =
+            'url("' + data.pc.icon + '")';
+          document.getElementById("appleCheck").style.backgroundPosition =
+            "0px -50px";
+
+          document.getElementById("w1").src = data.mobile.w1;
+          document.getElementById("w2").src = data.mobile.w2;
+          //document.getElementById("play").src = data.mobile.play;
+          /*document
+            .getElementById("book2_m")
+            .addEventListener("click", function() {
+              window.location.href =
+                "https://play.google.com/store/apps/details?id=com.joymeka.mbsg.google&hl=ko";
+            });*/
+          if (data.mobile.button1) {
+            document.getElementById("book1_m").src = data.mobile.button1;
+            document
+              .getElementById("book1_m")
+              .addEventListener("click", function() {
+                {
+                  //submit
+                  let phone = document.getElementById("phone").value;
+                  if (phone.length == 0) {
+                    alert("휴대번호를 입력해주세요.");
+                  } else if (phone.length != 11) {
+                    alert(
+                      "잘못된 휴대폰 번호입니다.다시 확인하고 입력해주세요."
+                    );
+                  } else if (model.c1 == false) {
+                    alert(
+                      "잘못된 휴대폰 번호입니다.다시 확인하고 입력해주세요."
+                    );
+                  } else {
+                    var res = {
+                      phone_type: model.platform == "android" ? 1 : 2,
+                      telnum: document.getElementById("phone").value,
+                      in_type: model.ismobile ? "M" : "M",
+                      user_type: "",
+                      chk2: 1
+                    };
+                    let ret = "";
+                    for (var item in res) {
+                      ret +=
+                        encodeURIComponent(item) +
+                        "=" +
+                        encodeURIComponent(res[item]) +
+                        "&";
+                    }
+                    ret = ret.substring(0, ret.length - 1);
+                    console.log(res);
+                    window.parent.booking({
+                      phone: res.telnum,
+                      device: window.innerWidth < 576 ? 0 : 1,
+                      type: model.platform == "android" ? 0 : 1
+                    });
+                    //alert('사전예약 신청이 완료 되었습니다. 참여해 주셔서 감사합니다.')
+                  }
+                  console.log(model);
+                }
+              });
+            document.getElementById("book1_m").style.display = "block";
+          }
+          if (data.mobile.button2 && data.mobile.buttonUrl2) {
+            document.getElementById("book2_m").src = data.mobile.button2;
+            document
+              .getElementById("book2_m")
+              .addEventListener("click", function() {
+                window.location.href = data.mobile.buttonUrl2;
+              });
+            document.getElementById("book2_m").style.display = "block";
+          }
+          if (data.mobile.button3 && data.mobile.buttonUrl3) {
+            document.getElementById("book3_m").src = data.mobile.button3;
+            document
+              .getElementById("book3_m")
+              .addEventListener("click", function() {
+                window.location.href = data.mobile.buttonUrl3;
+              });
+            document.getElementById("book3_m").style.display = "block";
+          }
+        }
+      }
+      //init(default_data)
+    </script>
+  </body>
+</html>

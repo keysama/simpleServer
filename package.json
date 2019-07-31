@@ -8,9 +8,11 @@
     "ejs": "^2.6.1",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.5.2",
+    "koa-body": "^4.1.0",
     "koa-bodyparser": "^4.2.1",
     "koa-compress": "^3.0.0",
     "koa-cors": "0.0.16",
+    "koa-jwt": "^3.6.0",
     "koa-router": "^7.4.0",
     "koa-session": "^5.8.2",
     "koa-static": "^5.0.0",
@@ -23,7 +25,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDoc" : "apidoc -i router/ -o static/apidoc"
+    "createDoc": "apidoc -i router/ -o static/apidoc"
   },
   "repository": {
     "type": "git",
@@ -38,8 +40,9 @@
     "url": "https://github.com/keysama/simpleServer/issues"
   },
   "homepage": "https://github.com/keysama/simpleServer#readme",
-  "apidoc": {  
-    "title": "接口文档", 
-    "url": "http://localhost:8083/apidoc"
+  "apidoc": {
+    "title": "接口文档",
+    "url": "http://localhost:8083",
+    "sampleUrl": "http://192.168.1.63:8083"
   }
 }

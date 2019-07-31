@@ -9,13 +9,13 @@ module.exports = {
 
 	https : {
 		httpsPort : 443,
-		switch : false,
+		switch : true,
 		privateKey : {
-			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.key'),
+			path : path.resolve(__dirname,'../https/2561268_gamenanum.net.key'),//公钥地址
 			encoded : 'utf8'
 		},
 		certificate : {
-			path : path.resolve(__dirname,'../https/2524472_www.gamenanum.com.pem'),
+			path : path.resolve(__dirname,'../https/2561268_gamenanum.net.pem'),//私钥地址
 			encoded : 'utf8'
 		}
 	},
@@ -24,9 +24,9 @@ module.exports = {
 		time : '24h'
 	},
 	mysql : {
-        host: '127.0.0.1',
+        host: '211.245.31.150',
         user: 'root',
-        password: 'pangSky12#$',
+        password: '',
         database: 'pangsky_community',
         port:'3306',
         dateStrings: true
@@ -37,9 +37,10 @@ module.exports = {
 		requestBody : true,//是否开启记录请求数据
 		requestParams : true,//是否开启记录请求的url参数
 		requestUrl : true,//是否开启记录请求的地址
-		type : 'dateFile',//类型，file：保存到文件，dateFile：保存到日期文件，console：控制台
+		sql : true,//是否开启记录sql请求
+		type : 'console',//类型，file：保存到文件，dateFile：保存到日期文件，console：控制台
 		filename : path.resolve(__dirname,`../../logs/daily_${time}.log`),//输出的文件路径和文件名
-		level : 'warn',//级别，保存以上的错误信息trace<debug<info<warn<error<fatal
+		level : 'trace',//级别，保存以上的错误信息trace<debug<info<warn<error<fatal
 	},
 	staticPath : [//静态资源目录,可以是多个
 		path.resolve(__dirname,'../../static')
@@ -81,6 +82,9 @@ module.exports = {
 			{
 				url:'/community',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community/index.html')
+			},{
+				url:'/community_admin',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				indexFile:path.resolve(__dirname,'../../static/community_admin/index.html')
 			}
 		]
 	}

@@ -23,9 +23,90 @@ module.exports = {
 			body : token
 		}
 	},
-	logout : async (ctx,next) => {
+	getUserInfo : async (ctx,next) => {
 
+		const {type} = ctx.params;
 
+		if(type > ctx.userInfo.type){
+			return  ctx.body = {
+				state : 0,
+				body : 'Incorrect permissions'
+			}
+		}
+
+		return ctx.body = {
+			state : 1,
+			body : ctx.userInfo
+		}
+	},
+	registe : async (ctx,next) => {
+		let {username,password,nickname,type} = ctx.request.body;
+
+		if(!type && type != 0){
+			type = 0;
+		}
+
+		let result = await authorityModule.registe(username,password,nickname,type);
+
+		if(result === false){
+			return ctx.body = {
+				state : 0,
+				body : '注册失败'
+			};
+		}
+
+		return ctx.body = {
+			state : 1,
+			body : 'success'
+		};
+	},
+	loginWIthId : async (ctx,next) => {
+		let {id,email,head,name,type} = ctx.request.body;
+
+		let result = await authorityModule.getUserInfoByGFId(id,type);
+
+		if(result === false){
+			return ctx.body = {
+				state : 0,
+				body : 'err'
+			};
+		}
+		console.log('res',result)
+
+		if(result.id){
+			const token = jwt.sign({...result},config.key,config.options);
+
+			return ctx.body = {
+				state : 1,
+				body : token
+			}
+		}
+
+		let result2 = await authorityModule.addUserInfoByGFId(id,email,head,name,type);
+		if(result2 === false){
+			return ctx.body = {
+				state : 0,
+				body : 'err'
+			};
+		}
+
+		console.log('res2',result2)
+
+		let result3 = await authorityModule.getUserInfoByGFId(id,type);
+		if(result3.id){
+			const token = jwt.sign({...result3},config.key,config.options);
+
+			return ctx.body = {
+				state : 1,
+				body : token
+			}
+		}
+		console.log('res3',result3)
+
+		return ctx.body = {
+			state : 0,
+			body : 'err'
+		}
 
 	}
 }

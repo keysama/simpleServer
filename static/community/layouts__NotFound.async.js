@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[2],{xoaX:function(e,t,n){"use strict";var u=n("g09b");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var a=u(n("q1tI")),o=function(e){return a.default.createElement("h1",null,"404")};t.default=o}}]);

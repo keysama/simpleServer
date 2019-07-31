@@ -1,7 +1,18 @@
 {
+  "/community/vendors.css": "/community/vendors.chunk.css",
   "/community/vendors.js": "/community/vendors.async.js",
+  "/community/layouts__BasicLayout.css": "/community/layouts__BasicLayout.chunk.css",
   "/community/layouts__BasicLayout.js": "/community/layouts__BasicLayout.async.js",
+  "/community/layouts__NotFound.js": "/community/layouts__NotFound.async.js",
+  "/community/p__article.css": "/community/p__article.chunk.css",
+  "/community/p__article.js": "/community/p__article.async.js",
+  "/community/p__channel.css": "/community/p__channel.chunk.css",
+  "/community/p__channel.js": "/community/p__channel.async.js",
+  "/community/p__createArticle.css": "/community/p__createArticle.chunk.css",
+  "/community/p__createArticle.js": "/community/p__createArticle.async.js",
+  "/community/p__index.css": "/community/p__index.chunk.css",
   "/community/p__index.js": "/community/p__index.async.js",
+  "/community/p__login.css": "/community/p__login.chunk.css",
   "/community/p__login.js": "/community/p__login.async.js",
   "/community/umi.css": "/community/umi.css",
   "/community/umi.js": "/community/umi.js",
@@ -9,5 +20,10 @@
   "/community/icons/icon-128x128.png": "/community/icons/icon-128x128.png",
   "/community/icons/icon-192x192.png": "/community/icons/icon-192x192.png",
   "/community/icons/icon-512x512.png": "/community/icons/icon-512x512.png",
-  "/community/index.html": "/community/index.html"
+  "/community/index.html": "/community/index.html",
+  "/community/static/banner.gif": "/community/static/banner.a40842af.gif",
+  "/community/static/event1.jpg": "/community/static/event1.4d7f6b1e.jpg",
+  "/community/static/event2.jpg": "/community/static/event2.5784c8a8.jpg",
+  "/community/static/event3.jpg": "/community/static/event3.0344f055.jpg",
+  "/community/static/event4.jpg": "/community/static/event4.9b6b9016.jpg"
 }

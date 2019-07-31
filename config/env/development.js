@@ -35,7 +35,8 @@ module.exports = {
 	},
 
 	staticPath : [//静态资源目录,可以是多个
-		path.resolve(__dirname,'../../static')
+		path.resolve(__dirname,'../../static'),
+		path.resolve(__dirname,'../../upload'),
 	],
 
 	logger : {//配置日志
@@ -54,7 +55,7 @@ module.exports = {
  		exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
 	    maxAge: 100,
 	    credentials: true,
-	    allowMethods: ['GET', 'POST', 'OPTIONS'],
+	    allowMethods: ['GET', 'POST', 'OPTIONS' ,'PUT' , 'DELETE'],
 	    allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous']
 	},
 
@@ -84,6 +85,9 @@ module.exports = {
 			{
 				url:'/community',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community/index.html')
+			},{
+				url:'/community_admin',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				indexFile:path.resolve(__dirname,'../../static/community_admin/index.html')
 			}
 		]
 	}

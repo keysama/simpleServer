@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/community/umi.css"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><title>Ant Design Pro</title><link rel="icon" href="/favicon.png" type="image/x-icon"><script>window.routerBase = "/community/";</script></head><body><noscript>Sorry, we need js to run correctly!</noscript><div id="root"><style>.page-loading-warp {
+<!DOCTYPE html><html lang="en"><head><link rel="stylesheet" href="/community/umi.css"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><title>Ant Design Pro</title><link rel="icon" href="/favicon.png" type="image/x-icon"><script>window.routerBase = "/community/";</script></head><body><noscript>Sorry, we need js to run correctly!</noscript><div class="g-signin2" data-onsuccess="onSignIn" id="googleBtn"></div><div id="root"><style>.page-loading-warp {
           padding: 120px;
           display: flex;
           justify-content: center;
@@ -137,4 +137,25 @@
             -webkit-transform: rotate(405deg);
             transform: rotate(405deg);
           }
-        }</style><div class="page-loading-warp"><div class="ant-spin ant-spin-lg ant-spin-spinning"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span></div></div></div><script src="/community/umi.js"></script></body></html>
+        }</style><div class="page-loading-warp"><div class="ant-spin ant-spin-lg ant-spin-spinning"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span></div></div></div><script src="/community/umi.js"></script><script>var auth2 ;
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+
+     
+     var gjs,fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById('google-jssdk')) {return;}
+     gjs = d.createElement(s); gjs.id = 'google-jssdk';
+     gjs.src = "https://apis.google.com/js/api:client.js";
+     fjs.parentNode.insertBefore(gjs, fjs);
+
+     var njs,fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById('naver-jssdk')) {return;}
+     njs = d.createElement(s); njs.id = 'naver-jssdk';
+     njs.src = "https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js";
+     fjs.parentNode.insertBefore(njs, fjs);
+
+   }(document, 'script', 'facebook-jssdk'));</script></body></html>
