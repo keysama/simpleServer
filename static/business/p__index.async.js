@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[2],{ExBf:function(n,e,t){"use strict";t.r(e);var i=t("q1tI"),u=t.n(i);t("FhP4");e["default"]=(n=>{return u.a.createElement("div",null,"index")})},FhP4:function(n,e,t){}}]);

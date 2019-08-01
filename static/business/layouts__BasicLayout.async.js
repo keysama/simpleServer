@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[0],{USCZ:function(n,e,t){"use strict";t.r(e);var r=t("q1tI"),s=t.n(r),a=t("Ynt2"),c=t.n(a);class o extends r["Component"]{constructor(){super()}render(){var n=this.props.children;return s.a.createElement("div",{className:c.a.container},n)}}e["default"]=o},Ynt2:function(n,e,t){}}]);

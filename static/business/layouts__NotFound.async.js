@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[1],{"XG+Z":function(n,e,t){"use strict";t.r(e);var a=t("q1tI"),r=t.n(a);e["default"]=(n=>{return r.a.createElement("h1",null,"404")})}}]);
