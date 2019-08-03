@@ -83,8 +83,14 @@ module.exports = {
 				url:'/community',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community/index.html')
 			},{
-				url:'/community_admin',//把/community下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
+				url:'/community_admin',//把/community_admin下没找到的请求全部返回/community/index.html，因为放在static和router之后，不会影响已有路由。
 				indexFile:path.resolve(__dirname,'../../static/community_admin/index.html')
+			},{
+				url:'/console',
+				indexFile:path.resolve(__dirname,'../../static/index.html')
+			},{
+				url:'/login',
+				indexFile:path.resolve(__dirname,'../../static/index.html')
 			}
 		]
 	}

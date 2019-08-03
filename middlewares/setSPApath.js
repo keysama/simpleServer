@@ -15,6 +15,11 @@ module.exports = app => {
   				ctx.body = fs.createReadStream(item.indexFile);
 				await next();
 			})
+			router.get(item.url, async (ctx,next) => {
+				ctx.type = 'html';
+  				ctx.body = fs.createReadStream(item.indexFile);
+				await next();
+			})
 			app.use(router.routes())
 		})
 	}

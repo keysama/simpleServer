@@ -4,6 +4,7 @@ module.exports = {
 	create : async (ctx,next) => {
 		const userInfo = ctx.userInfo;
 		const {name} = ctx.request.body;
+		const date = Date.now();
 
 		if(userInfo.type <= 0){
 			return ctx.body = {
@@ -12,9 +13,18 @@ module.exports = {
 			}
 		}
 
+		let res = await communityModule.create(name,userInfo.id,date);
+
+		if(res === false){
+			return ctx.body = {
+				state : 0,
+				body: 'err'
+			}
+		}
+
 		return ctx.body = {
-			userInfo,
-			name
+			state : 1,
+			body : 'success'
 		}
 	},
 	checkNameRepeat : async (ctx,next) => {

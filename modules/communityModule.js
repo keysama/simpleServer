@@ -1,6 +1,16 @@
 const mysql = require('../config/mysql');
 
 module.exports = {
+	create : async (name,userId,date) => {
+		let sql = `INSERT INTO community (name,createTime,creator) VALUES ('${name}','${date}',${userId})`
+		let result = await mysql.db(sql);
+
+		if(result === false ){
+			return false
+		}
+
+		return true;
+	},
 	getListByCreator : async (creatorId) => {
 		let sql = `SELECT * FROM community WHERE creator=${creatorId}`;
 
