@@ -15,19 +15,21 @@ module.exports = {
             pool.getConnection(function(err,conn){
                 if(err){
                     logger.error(err)
+                    conn.release();
                     resolve(false)
                 }else{
                     conn.query(sql,function(err,results){
                         if(err){
                             logger.error(err)
+                            conn.release();
                             resolve(false)
                         }else{
                             logger.info(sql)
+                            conn.release();
                             resolve(results)
                         }
                     })
                 }
-                conn.release();
             })
         });
     },
