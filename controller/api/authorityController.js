@@ -32,11 +32,26 @@ module.exports = {
 				state : 0,
 				body : 'Incorrect permissions'
 			}
-		}
+		} 
 
 		return ctx.body = {
 			state : 1,
 			body : ctx.userInfo
+		}
+	},
+	getUserState : async (ctx,next) => {
+
+		const { type,data } = ctx.request.body;
+
+		let userState = await authorityModule.getUserState(type,data);
+
+		if(userState[0]){
+			delete userState[0].password;
+		}
+
+		return ctx.body = {
+			state : 1,
+			body : userState[0]
 		}
 	},
 	registe : async (ctx,next) => {
@@ -61,7 +76,7 @@ module.exports = {
 		};
 	},
 	loginWIthId : async (ctx,next) => {
-		let {id,email,head,name,type} = ctx.request.body;
+		let {id,email,head,name,type,phone,phoneType} = ctx.request.body;
 
 		let result = await authorityModule.getUserInfoByGFId(id,type);
 
@@ -73,6 +88,11 @@ module.exports = {
 		}
 		console.log('res',result)
 
+		if(phone != null && phoneType != null && result.id && !result.phone && !result.phoneType){
+			await authorityModule.updateUserInfo(result.id,{phone:phone,phoneType:phoneType});
+		}
+
+
 		if(result.id){
 			const token = jwt.sign({...result},config.key,config.options);
 
@@ -82,7 +102,7 @@ module.exports = {
 			}
 		}
 
-		let result2 = await authorityModule.addUserInfoByGFId(id,email,head,name,type);
+		let result2 = await authorityModule.addUserInfoByGFId(id,email,head,name,type,phone,phoneType);
 		if(result2 === false){
 			return ctx.body = {
 				state : 0,

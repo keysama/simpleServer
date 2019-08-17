@@ -14,7 +14,7 @@ module.exports = {
 		return true;
 	},
 	getList : async (channelId,start,num) => {
-		let sql = `SELECT article.*,user.nickname as creator_nickname,user.head as creator_head,(SELECT count(1) FROM comment WHERE comment.articleId=article.id)commnetNum FROM article LEFT JOIN user on user.id=article.creator WHERE channelId=${channelId} LIMIT ${start},${num}`;
+		let sql = `SELECT article.*,user.nickname as creator_nickname,user.head as creator_head,(SELECT count(1) FROM comment WHERE comment.articleId=article.id)commnetNum FROM article LEFT JOIN user on user.id=article.creator WHERE channelId=${channelId} ORDER BY article.zindex DESC,article.createTime DESC LIMIT ${start},${num}`;
 		let result = await mysql.db(sql);
 
 		if(result === false){

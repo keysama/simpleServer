@@ -57,7 +57,7 @@
     "name": "DeleteApiArticleDeleteArticleid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/article/delete/:articleId"
+        "url": "http://192.168.3.133:8083/api/article/delete/:articleId"
       }
     ]
   },
@@ -106,7 +106,7 @@
     "name": "GetApiArticleInfoArticleid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/article/info/:articleId"
+        "url": "http://192.168.3.133:8083/api/article/info/:articleId"
       }
     ]
   },
@@ -169,7 +169,7 @@
     "name": "GetApiArticleListChannelidStartNum",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/article/list/:channelId/:start/:num"
+        "url": "http://192.168.3.133:8083/api/article/list/:channelId/:start/:num"
       }
     ]
   },
@@ -259,7 +259,7 @@
     "name": "PostApiArticleInfoArticleid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/article/info/:articleId"
+        "url": "http://192.168.3.133:8083/api/article/info/:articleId"
       }
     ]
   },
@@ -349,7 +349,7 @@
     "name": "PutApiArticleNew",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/article/new"
+        "url": "http://192.168.3.133:8083/api/article/new"
       }
     ]
   },
@@ -405,7 +405,7 @@
     "groupTitle": "authority",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/authority/login"
+        "url": "http://192.168.3.133:8083/api/authority/login"
       }
     ]
   },
@@ -475,7 +475,7 @@
     "groupTitle": "authority",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/authority/registe"
+        "url": "http://192.168.3.133:8083/api/authority/registe"
       }
     ]
   },
@@ -537,7 +537,7 @@
     "groupTitle": "authority",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/authority/userInfo/:type"
+        "url": "http://192.168.3.133:8083/api/authority/userInfo/:type"
       }
     ]
   },
@@ -599,7 +599,7 @@
     "name": "DeleteApiChannelDeleteChannelid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/channel/delete/:channelId"
+        "url": "http://192.168.3.133:8083/api/channel/delete/:channelId"
       }
     ]
   },
@@ -648,7 +648,7 @@
     "name": "GetApiChannelInfoChannelid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/channel/info/:channelId"
+        "url": "http://192.168.3.133:8083/api/channel/info/:channelId"
       }
     ]
   },
@@ -697,7 +697,7 @@
     "name": "GetApiChannelListSectionid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/channel/list/:sectionId"
+        "url": "http://192.168.3.133:8083/api/channel/list/:sectionId"
       }
     ]
   },
@@ -780,7 +780,7 @@
     "name": "PostApiChannelInfoChannelid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/channel/info/:channelId"
+        "url": "http://192.168.3.133:8083/api/channel/info/:channelId"
       }
     ]
   },
@@ -856,7 +856,7 @@
     "name": "PutApiChannelNew",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/channel/new"
+        "url": "http://192.168.3.133:8083/api/channel/new"
       }
     ]
   },
@@ -918,7 +918,7 @@
     "name": "DeleteApiCommentDeleteCommentid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/delete/:commentId"
+        "url": "http://192.168.3.133:8083/api/comment/delete/:commentId"
       }
     ]
   },
@@ -980,7 +980,7 @@
     "name": "DeleteApiCommentDeletereplyReplyid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/deleteReply/:replyId"
+        "url": "http://192.168.3.133:8083/api/comment/deleteReply/:replyId"
       }
     ]
   },
@@ -1043,7 +1043,7 @@
     "name": "GetApiCommentListArticleidStartNum",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/list/:articleId/:start/:num"
+        "url": "http://192.168.3.133:8083/api/comment/list/:articleId/:start/:num"
       }
     ]
   },
@@ -1106,7 +1106,7 @@
     "name": "GetApiCommentReplyCommentidStartNum",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/reply/:commentId/:start/:num"
+        "url": "http://192.168.3.133:8083/api/comment/reply/:commentId/:start/:num"
       }
     ]
   },
@@ -1175,7 +1175,7 @@
     "name": "PutApiCommentNew",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/new"
+        "url": "http://192.168.3.133:8083/api/comment/new"
       }
     ]
   },
@@ -1244,7 +1244,7 @@
     "name": "PutApiCommentReply",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/comment/reply"
+        "url": "http://192.168.3.133:8083/api/comment/reply"
       }
     ]
   },
@@ -1293,7 +1293,7 @@
     "name": "GetApiCommunityConfigCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/config/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/config/:communityId"
       }
     ]
   },
@@ -1342,7 +1342,7 @@
     "name": "GetApiCommunityCustomerlistCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/customerList/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/customerList/:communityId"
       }
     ]
   },
@@ -1391,7 +1391,7 @@
     "name": "GetApiCommunityInfoCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/info/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/info/:communityId"
       }
     ]
   },
@@ -1440,7 +1440,7 @@
     "name": "GetApiCommunityListCreatorid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/list/:creatorId"
+        "url": "http://192.168.3.133:8083/api/community/list/:creatorId"
       }
     ]
   },
@@ -1509,7 +1509,7 @@
     "name": "PostApiCommunityConfigCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/config/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/config/:communityId"
       }
     ]
   },
@@ -1578,7 +1578,7 @@
     "name": "PostApiCommunityInfoCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/info/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/info/:communityId"
       }
     ]
   },
@@ -1647,7 +1647,7 @@
     "name": "PutApiCommunityConfigCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/config/:communityId"
+        "url": "http://192.168.3.133:8083/api/community/config/:communityId"
       }
     ]
   },
@@ -1709,7 +1709,7 @@
     "groupTitle": "community",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/create"
+        "url": "http://192.168.3.133:8083/api/community/create"
       }
     ]
   },
@@ -1758,7 +1758,7 @@
     "groupTitle": "community",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/community/nameExist/:name"
+        "url": "http://192.168.3.133:8083/api/community/nameExist/:name"
       }
     ]
   },
@@ -1820,7 +1820,7 @@
     "name": "DeleteApiMessageDeleteMessageid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/message/delete/:messageId"
+        "url": "http://192.168.3.133:8083/api/message/delete/:messageId"
       }
     ]
   },
@@ -1882,7 +1882,7 @@
     "name": "GetApiMessageListType",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/message/list/:type"
+        "url": "http://192.168.3.133:8083/api/message/list/:type"
       }
     ]
   },
@@ -1951,7 +1951,7 @@
     "name": "PostApiMessageState",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/message/state"
+        "url": "http://192.168.3.133:8083/api/message/state"
       }
     ]
   },
@@ -2020,7 +2020,7 @@
     "name": "PutApiMessageNew",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/message/new"
+        "url": "http://192.168.3.133:8083/api/message/new"
       }
     ]
   },
@@ -2082,7 +2082,7 @@
     "name": "DeleteApiSectionDeleteSectionid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/section/delete/:sectionId"
+        "url": "http://192.168.3.133:8083/api/section/delete/:sectionId"
       }
     ]
   },
@@ -2131,7 +2131,7 @@
     "name": "GetApiSectionListCommunityid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/section/list/:communityId"
+        "url": "http://192.168.3.133:8083/api/section/list/:communityId"
       }
     ]
   },
@@ -2187,7 +2187,7 @@
     "name": "PostApiFileNewCommunityidFilepath",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/file/new/:communityId/:filePath"
+        "url": "http://192.168.3.133:8083/api/file/new/:communityId/:filePath"
       }
     ]
   },
@@ -2270,7 +2270,7 @@
     "name": "PostApiSectionInfoSectionid",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/section/info/:sectionId"
+        "url": "http://192.168.3.133:8083/api/section/info/:sectionId"
       }
     ]
   },
@@ -2346,7 +2346,7 @@
     "name": "PutApiSectionNew",
     "sampleRequest": [
       {
-        "url": "http://192.168.1.63:8083/api/section/new"
+        "url": "http://192.168.3.133:8083/api/section/new"
       }
     ]
   }

@@ -24,7 +24,9 @@ router
 	 *  }
 	 */
 	.post('/login',authorityController.login)
+
 	.post('/loginWIthId',authorityController.loginWIthId)
+	.post('/userState',authorityController.getUserState)
 	/**
 	 * @api {post} /api/authority/registe 注册用户
 	 * @apiDescription 注册普通用户
@@ -57,6 +59,7 @@ router
 	 *  }
 	 */
 	.get('/userInfo/:type',checkToken,authorityController.getUserInfo)
+
 
 
 

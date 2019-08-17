@@ -7,7 +7,7 @@ module.exports = {
 
 		const res = Object.keys(files).map(item=>({
 					name : item,
-					url : `/community_${communityId}/${filePath}/${item}.${files[item]['name'].split('.')[1]}`
+					url : `/community_${communityId}/${filePath}/${item}.${files[item]['name'].split('.')[files[item]['name'].split('.').length-1]}`
 				}))
 		console.log('asdsd',res)
 

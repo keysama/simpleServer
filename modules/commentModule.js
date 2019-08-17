@@ -26,7 +26,7 @@ module.exports = {
 		return true;
 	},
 	getCommentList : async (articleId,start,num) => {
-		let sql = `SELECT comment.*,user.nickname as creator_niackname,user.head as creator_head,(SELECT count(1) from reply WHERE reply.commentId = comment.id)reply_num from comment left join user on user.id = comment.creator WHERE comment.articleId=${articleId} LIMIT ${start},${num}`;
+		let sql = `SELECT comment.*,user.nickname as creator_niackname,user.head as creator_head,(SELECT count(1) from reply WHERE reply.commentId = comment.id)reply_num from comment left join user on user.id = comment.creator WHERE comment.articleId=${articleId} ORDER BY comment.createTime DESC LIMIT ${start},${num}`;
 
 		let result = await mysql.db(sql);
 
@@ -39,7 +39,7 @@ module.exports = {
 
 	},
 	getReplyList : async (commentId,start,num) => {
-		let sql = `SELECT reply.*,user.nickname as creator_niackname,user.head as creator_head FROM reply left join user on user.id = reply.creator WHERE commentId=${commentId} LIMIT ${start},${num}`;
+		let sql = `SELECT reply.*,user.nickname as creator_niackname,user.head as creator_head FROM reply left join user on user.id = reply.creator WHERE commentId=${commentId} ORDER BY reply.createTime DESC LIMIT ${start},${num}`;
 		let result = await mysql.db(sql);
 
 		if(result === false){

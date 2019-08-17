@@ -173,7 +173,7 @@ module.exports = {
 		const { communityId } = ctx.params;
 		const userId= ctx.userInfo.id;
 		const data = ctx.request.body;
-		
+
 		let checkRes = await checkCommunityRoles(communityId,userId);
 
 		if(!checkRes){

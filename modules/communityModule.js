@@ -95,7 +95,7 @@ module.exports = {
 		let num = keys.length;
 
 		for (let i = 0;i < num;i ++){
-			let sql = `INSERT INTO community_config(communityId,key,value) VALUES (${communityId},'${keys[i]}','${data[keys[i]]}')`;
+			let sql = 'INSERT INTO community_config(communityId,'+'`key`'+`,value) VALUES (${communityId},'${keys[i]}','${data[keys[i]]}')`;
 			let result = await mysql.db(sql);
 
 			if(result === false){

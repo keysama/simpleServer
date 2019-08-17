@@ -3,15 +3,14 @@ const articleModule = require('../../modules/articleModule');
 module.exports = {
 	create : async (ctx,next) => {
 		const userInfo = ctx.userInfo;
-		const {channelId,title,type,zindex,content} = ctx.request.body;
+		const {channelId,title,type = 0,author = 0,zindex = 0,content} = ctx.request.body;
 		const creator = userInfo.id;
 		const date = Date.now();
 
-		if(!type && type != 0){
-			type = 0
-		}
-		
-		let res = await articleModule.create({channelId,title,type,zindex,content,creator,date});
+		const pass = false;
+
+
+		let res = await articleModule.create({channelId,title,type,zindex,content,creator,date,author});
 
 		if(res === false){
 			return ctx.body = {

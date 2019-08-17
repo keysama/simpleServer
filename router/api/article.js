@@ -16,14 +16,15 @@ router
  	 * @apiHeader {string} Authorization "Bearer"[space]token
 	 * @apiParam {int} channelId 频道id
 	 * @apiParam {string} title 文章标题
-	 * @apiParam {int} type 文章类型
-	 * @apiParam {int} zindex 文章排序
+	 * @apiParam {int} type 文章类型(0:普通，1:醒目)
+ 	 * @apiParam {int} author 权限,可选,默认0,(0:开放，1:仅管理员)
+	 * @apiParam {int} zindex 文章排序,优先级从高到低
 	 * @apiParam {string} content 文章内容
 	 * @apiSuccess {json} result 结果
 	 * @apiSuccessExample {json} Success-Response:
 	 *  {
 	 *      "state" : 1,
-	 *      "body" : 'success'
+	 *      "body" : [insertId]
 	 *  }
 	 */
 	.put('/new',checkToken,articleController.create)
@@ -43,11 +44,11 @@ router
 	 */
 	.get('/list/:channelId/:start/:num',articleController.getList)
 	/**
-	 * @api {get} /api/article/info/:articleId 获取文章内容
+	 * @api {get} /api/article/info/:articleId 获取文章
 	 * @apiDescription 获取文章内容
 	 * @apiGroup article
 	 * @apiParam {string} articleId 文章id
-	 * @apiSuccess {json} result 文章内容
+	 * @apiSuccess {json} result 文章
 	 * @apiSuccessExample {json} Success-Response:
 	 *  {
 	 *      "state" : 1,

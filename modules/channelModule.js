@@ -14,7 +14,7 @@ module.exports = {
 		return true;
 	},
 	getList : async (sectionId) => {
-		let sql = `SELECT channel.*,(SELECT count(1) FROM article WHERE article.channelId=channel.id)articleNum FROM channel WHERE sectionId=${sectionId}`;
+		let sql = `SELECT channel.*,(SELECT count(1) FROM article WHERE article.channelId=channel.id)articleNum FROM channel WHERE sectionId=${sectionId} ORDER BY channel.zindex DESC`;
 		let result = await mysql.db(sql);
 
 		if(result === false){

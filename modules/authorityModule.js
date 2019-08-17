@@ -41,9 +41,9 @@ module.exports = {
 
 		return result[0];
 	},
-	addUserInfoByGFId : async (id,email,head,name,type) => {
+	addUserInfoByGFId : async (id,email,head,name,type,phone,phoneType) => {
 		let date = Date.now();
-		let sql = `INSERT INTO user (head,nickname,username,password,type,createTime,state,${type}) VALUES('${head}','${name}','${email}','${date+'_pang'}',${0},'${date}',${0},'${id}')`;
+		let sql = `INSERT INTO user (head,nickname,username,password,type,createTime,state,${type},phone,phoneType) VALUES('${head}','${name}','${email}','${date+'_pang'}',${0},'${date}',${0},'${id}','${phone || ''}','${phoneType || ''}')`;
 		let result = await mysql.db(sql);
 
 		if(result === false || result.length <= 0){
@@ -51,5 +51,24 @@ module.exports = {
 		}
 		return true;
 
+	},
+	getUserState : async (type,data) => {
+		let sql = `SELECT * FROM user WHERE ${type}='${data}'`;
+		let result = await mysql.db(sql);
+
+		if(result === false || result.length <= 0){
+			return false
+		}
+		return result;
+	},
+	updateUserInfo : async (id,data) => {
+		let str = Object.keys(data).map(item=>`${item}='${data[item]}'`).join(',');
+		let sql = `UPDATE user SET ${str} WHERE id=${id}`;
+		let result = await mysql.db(sql);
+
+		if(result === false || result.length <= 0){
+			return false
+		}
+		return result;
 	}
 }
