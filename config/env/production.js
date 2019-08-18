@@ -5,7 +5,7 @@ const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeSt
 
 module.exports = {
 
-	port : 80,//监听端口号
+	port : 8081,//监听端口号
 
 	https : {
 		httpsPort : 443,
