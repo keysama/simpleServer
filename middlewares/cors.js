@@ -1,19 +1,19 @@
 const cors = require('koa2-cors');
 const config = require('../config').cors;
 
-if(config.switch){
-	console.log('开启跨域')
-}else{
-	console.log('关闭跨域')
-}
+module.exports= app => {
+	if(!config.switch){
+		console.log('关闭跨域');
+		return 0;
+	};
 
-module.exports=()=>{
-	if(!config.switch){return async (ctx,next) => {await next()}}
-	return cors({
+	console.log('开启跨域');
+
+	app.use(cors({
 	    exposeHeaders: config.exposeHeaders,
 	    maxAge: config.maxAge,
 	    credentials: config.credentials,
 	    allowMethods: config.allowMethods,
 	    allowHeaders: config.allowHeaders,
-	})
+	}))
 }

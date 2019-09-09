@@ -15,17 +15,17 @@ const app = new Koa();//没啥好说的=L=
 
 module.exports = () => {
 
-	app.use(cors());
+	cors(app);//跨域
 
 	setAppCache(app);//设置缓存
 
-	app.use(logger());//日志的中间件
+	logger(app);//日志的中间件
 
 	app.use(bodyParser());//请求解析的中间件
 
-	app.use(session(app));//session的中间件，通过ctx.session存取
+	session(app);//session的中间件，通过ctx.session存取
 
-	app.use(ejs())//ejs模板
+	ejs(app)//ejs模板
 
 	router(app);//路由
 

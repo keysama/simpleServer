@@ -1,4 +1,4 @@
-const mysql = require('../config/mysql');
+const mysql = require('../config/database/mysql');
 
 module.exports = {
 	login : async (username,password) => {

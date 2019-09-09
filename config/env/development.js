@@ -5,7 +5,7 @@ const time = timeStemp.getFullYear() + '_' + timeStemp.getMonth() + '_' + timeSt
 
 module.exports = {
 
-	port : 8083,//监听端口号,false关闭
+	port : 8084,//监听端口号,false关闭
 
 	https : {
 		httpsPort : 443,
@@ -25,13 +25,18 @@ module.exports = {
 		options : { expiresIn: '2h' }
 	},
 
-	mysql : {
-        host: '127.0.0.1',
-        user: 'root',
-        password: 'lx834529965LX#@!',
-        database: 'pangsky_community',
-        port:'3306',
-        dateStrings: true
+	database : {
+		mysql : {
+	        host: '127.0.0.1',
+	        user: 'root',
+	        password: 'lx834529965LX#@!',
+	        database: 'pangsky_community',
+	        port:'3306',
+	        dateStrings: true
+		},
+		mongo : {
+			dbUrl: 'mongodb://localhost:27017/test'
+		}
 	},
 
 	staticPath : [//静态资源目录,可以是多个

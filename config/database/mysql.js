@@ -1,9 +1,10 @@
 const mysql = require('mysql');
-const config = require('./index.js').mysql;
+const config = require('../index.js').database.mysql;
+console.log(111,config)
 const pool = mysql.createPool(config);
 
 const log4js = require('log4js');
-const loggerConfig = require('./index.js').logger;
+const loggerConfig = require('../index.js').logger;
 const logger = loggerConfig.sql ? log4js.getLogger('SQL') : {
     error : () => {},
     info: () => {}

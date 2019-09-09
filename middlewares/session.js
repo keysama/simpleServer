@@ -15,5 +15,5 @@ module.exports = (app) => {
     for(var i=0;i<100000;i++){
         app.keys[i]='a_'+Math.random();
     }
-	return session(CONFIG,app)
+	app.use(session(CONFIG,app))
 }

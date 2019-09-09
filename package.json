@@ -23,7 +23,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "createDoc" : "apidoc -i router/ -o static/apidoc"
+    "createDoc": "apidoc -i router/ -o static/apidoc"
   },
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "url": "https://github.com/keysama/simpleServer/issues"
   },
   "homepage": "https://github.com/keysama/simpleServer#readme",
-  "apidoc": {  
-    "title": "接口文档", 
+  "apidoc": {
+    "title": "接口文档",
     "url": "http://localhost:8083/apidoc"
   }
 }

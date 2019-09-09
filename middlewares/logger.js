@@ -16,13 +16,13 @@ log4js.configure({
 
 const logger = log4js.getLogger('请求信息');
 
-module.exports=()=>{
- 	return async (ctx,next)=>{
- 		let start=config.respondTime && Date.now();//记录相应开始时间
+module.exports= app =>{
+  app.use(async (ctx,next)=>{
+    let start=config.respondTime && Date.now();//记录相应开始时间
     if(config.requestUrl){
       logger.info(`地址：${ctx.request.url}`)
     }
- 		await next();
+    await next();
     if(ctx.res.statusCode === 200){
       if(config.requestBody){
         logger.debug(`请求body：${JSON.stringify(ctx.request.body)}`)
@@ -37,5 +37,5 @@ module.exports=()=>{
     }else{
       logger.debug(`错误：status:${ctx.res.statusCode}`)
     }
- 	};
+  })
 }
